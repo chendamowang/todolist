@@ -3,7 +3,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="/static/bootstrap/favicon.ico">
@@ -42,19 +41,20 @@
               <li class="active"><a href="#">主页</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">登录 <span class="sr-only">(current)</span></a></li>
+              {% if request.user.is_authenticated %}
+              <li class="active"><a href="{% url 'auth:logout' %}">退出 <span class="sr-only">(current)</span></a></li>
+              {% else %}
+              <li class="active"><a href="{% url 'auth:login' %}">登录 <span class="sr-only">(current)</span></a></li>
+              {% endif %}
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
+      {% block body %}{% endblock %}
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
+
       </div>
 
     </div> <!-- /container -->

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<div class="page-header">
+    <h1>登录</h1>
+</div>
+<div class="col-md-4">
+    <form method='post'>
+        {% csrf_token %}
+        {{ form }}
+            <br><input type="submit" class="button button-primary" value="登录">
+    </form>
+    <p>新用户? <a href="{% url 'auth:register' %}">点击这里注册</a>.</p>
+</div>
+{% endblock %}
