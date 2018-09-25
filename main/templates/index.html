@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-header">
+    <h1>To Do List</h1>
+    <font><span id="nowDateTimeSpan"></span></font>
+</div>
+<div>
+    {% if request.user.is_authenticated %}
+        
+        <h2>添加待办</h2>
+        
+        <form action="/" method="post">
+            {% csrf_token %}
+            <input type="text" name="title" style="width:800px;height: 50px">
+            <input type="submit" value="提交" class="btn btn-lg btn-success">
+        </form>
+        </br>
+        {% for todolist in user.todolists.all %}
+        <form action="form_action.asp" method="get">
+            <p><input type="checkbox" name="check">{{ todolist.title }}
+            <div>
+            <a href="{% url 'edit' todolist.id %}"> <span class="label label-primary" style="text-align: center">编辑</span></a>
+            <a href="{% url 'delete' todolist.id %}"> <span class="label label-primary">删除</span></a>
+            </div>
+            </p>
+        </form>  
+        {% endfor %}
+    {% else %}
+        <h2>规划生活</h2>
+        <h2>然后享受生活……</h2>
+        <p>生活可能让您倍感焦虑，但实际上您大可不必如此。</p>
+        <p>Todoist可以让您跟进所有事情，这样您就可以轻松完成它们并享受之后的宁静时光。</p>
+        <a href="{% url 'auth:login' %}">立刻加入</a>
+    {% endif %}
+</div>
+{% endblock %}

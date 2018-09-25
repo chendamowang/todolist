@@ -12,7 +12,7 @@ class LoginForm(forms.Form):
 
     
     password = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Password'}),
+        widget=forms.PasswordInput(attrs={'placeholder': 'Password'}),
         label=''
     )
         
@@ -27,17 +27,6 @@ class LoginForm(forms.Form):
         return self.cleaned_data    
     
 
-def widget_attrs(placeholder):
-    return {'class': 'u-full-width', 'placeholder': placeholder}
-
-
-def form_kwargs(widget, label='', max_length=64):
-    return {'widget': widget, 'label': label, 'max_length': max_length}
-
-
-
-
-
 class RegistrationForm(forms.Form):
 
     username = forms.CharField(
@@ -49,12 +38,12 @@ class RegistrationForm(forms.Form):
 
 
     password = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Password'}),
+        widget=forms.PasswordInput(attrs={'placeholder': 'Password'}),
         label=''
     )
 
     password2 = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Password confirmed'}),
+        widget=forms.PasswordInput(attrs={'placeholder': 'Password confirmed'}),
         label=''
     )
     

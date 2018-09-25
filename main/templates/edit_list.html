@@ -2,13 +2,14 @@
 
 {% block body %}
 <div class="page-header">
-    <h1>注册</h1>
+    <h1>编辑待办事项</h1>
 </div>
-<div class="col-md-4">
+<div>
     <form method='post'>
         {% csrf_token %}
         {{ form }}
-            <br><input type="submit" class="btn btn-primary" value="提交">
+        <input type="submit" class="button button-primary" value="完成">
     </form>
+
 </div>
 {% endblock %}
