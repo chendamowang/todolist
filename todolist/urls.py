@@ -16,8 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from main import views as main_views
-#from lists import views as lists_views
-from accounts import views as auth_views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,5 +26,5 @@ urlpatterns = [
     
     url(r'^auth/', include('accounts.urls')),
     
-   # url(r'^$', lists_views.index, name='index')
+    url(r'^api/', include('api.urls')),
 ]
