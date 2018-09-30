@@ -2,7 +2,7 @@ TodoList
 ======
 一个简单的待办项目清单的应用。
 
-![image](http://github.com/chendamowang/todolist/blob/master/home.png)
+![image](https://github.com/chendamowang/todolist/blob/master/home.png)
 
 * 采用django框架。
 * 前端采用bootstrap3。
