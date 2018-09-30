@@ -2,7 +2,7 @@ TodoList
 ======
 一个简单的待办项目清单的应用。
 
-![image](http://github.com/chendamowang/todolist/home.png)
+![image](http://github.com/chendamowang/todolist/blob/master/home.png)
 
 * 采用django框架。
 * 前端采用bootstrap3。
@@ -12,7 +12,7 @@ TodoList
 ---
 终端下执行：
 
-    * pip install -r requirement
+    pip install -r requirement
 
 数据库配置：
 ---
